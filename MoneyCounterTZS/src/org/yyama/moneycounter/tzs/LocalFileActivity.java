@@ -37,7 +37,7 @@ public class LocalFileActivity extends Activity implements OnClickListener {
 	private void initAdview() {
 		// adView ÇçÏê¨Ç∑ÇÈ
 		mAdView = new AdView(this);
-		mAdView.setAdUnitId("ca-app-pub-2505812570403600/9054250576");
+		mAdView.setAdUnitId("ca-app-pub-2505812570403600/6058157778");
 		mAdView.setAdSize(AdSize.BANNER);
 		mAdView.setPadding(0, 0, 0, 5);
 		// AdRequest adRequest = new

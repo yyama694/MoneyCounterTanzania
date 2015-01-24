@@ -27,7 +27,7 @@ public class Screenshot {
 	private static final String directory = Environment
 			.getExternalStorageDirectory().toString()
 			+ "/"
-			+ Environment.DIRECTORY_PICTURES + "/" + "MoneyConterUS/";
+			+ Environment.DIRECTORY_PICTURES + "/" + "MoneyConterTZS/";
 
 	public static void saveScreen(Activity act) {
 		createDir();

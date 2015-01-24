@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Money Counter US</string>
+    <string name="app_name">Money Counter Tanzania(TZS)</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="yen10000"><u>10,000 円 </u></string>
-    <string name="yen5000"><u>5,000 円 </u></string>
-    <string name="yen2000"><u>2,000 円 </u></string>
-    <string name="yen1000"><u>1,000 円 </u></string>
-    <string name="yen500"><u>500 円 </u></string>
-    <string name="yen100"><u>100 円 </u></string>
-    <string name="yen50"><u>50 円 </u></string>
-    <string name="yen10"><u>10 円 </u></string>
-    <string name="yen5"><u>5 円 </u></string>
-    <string name="yen1"><u>1 円 </u></string>
+    <string name="sh10000"><u>10,000 /= </u></string>
+    <string name="sh5000"><u>5,000 /= </u></string>
+    <string name="sh2000"><u>2,000 /= </u></string>
+    <string name="sh1000"><u>1,000 /= </u></string>
+    <string name="sh500"><u>500 /= </u></string>
+    <string name="sh200"><u>200 /= </u></string>
+    <string name="sh100"><u>100 /= </u></string>
+    <string name="sh50"><u>50 /= </u></string>
+    <string name="sh20"><u>20 /= </u></string>
+    <string name="sh10"><u>10 /= </u></string>
+    <string name="sh5"><u>5 /= </u></string>
+    <string name="sh1"><u>1 /= </u></string>
     <string name="dol100"><u>＄ 100 </u></string>
     <string name="dol50"><u>＄  50 </u></string>
     <string name="dol20"><u>＄  20 </u></string>
@@ -47,11 +49,12 @@
     <string name="kind">Kind</string>
     <string name="num">Num</string>
     <string name="sub_total">Subtotal</string>
-    <string name="all_clear">Initialize</string>
+    <string name="all_clear">Clear All</string>
     <string name="total">Total</string>
     <string name="space"></string>
-	<string name="all_crear_confirm_title">Initialize confirmation</string>
-	<string name="all_crear_confirm_msg">Are you sure you want to initialize?</string>
-	<string name="saved_screenshot">saved the screen shot.</string>
-	<string name="destination">Destination</string>
+    <string name="all_crear_confirm_title">Initialize confirmation</string>
+    <string name="all_crear_confirm_msg">Are you sure you want to initialize?</string>
+    <string name="saved_screenshot">saved the screen shot.</string>
+    <string name="destination">Destination</string>
+
 </resources>

@@ -55,105 +55,96 @@ import com.google.android.gms.ads.InterstitialAd;
  */
 public class MainActivity extends Activity implements OnClickListener,
 		OnTouchListener {
-	int[] centValue = { 1, 5, 10, 25, 50, 99999, 100, 200, 500, 1000, 2000,
-			5000, 10000 };
+	int[] shValue = { 1, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000 };
 	Map<Integer, Integer> data = new HashMap<Integer, Integer>();
 	CountDialog cDialog = new CountDialog();
 	Map<Integer, Integer> idMapNum = new HashMap<Integer, Integer>();
 	Map<Integer, Integer> idMapSum = new HashMap<Integer, Integer>();
 	Map<Integer, Integer> idMapTxt = new HashMap<Integer, Integer>();
 	CountDialog countDialog;
-	int[] numIds = { R.id.Num1cent, R.id.Num5cent, R.id.Num10cent,
-			R.id.Num25cent, R.id.Num50cent, R.id.Num100cent, R.id.Num1dol,
-			R.id.Num2dol, R.id.Num5dol, R.id.Num10dol, R.id.Num20dol,
-			R.id.Num50dol, R.id.Num100dol };
-	int[] sumIds = { R.id.Sum1cent, R.id.Sum5cent, R.id.Sum10cent,
-			R.id.Sum25cent, R.id.Sum50cent, R.id.Sum100cent, R.id.Sum1dol,
-			R.id.Sum2dol, R.id.Sum5dol, R.id.Sum10dol, R.id.Sum20dol,
-			R.id.Sum50dol, R.id.Sum100dol };
+	int[] numIds = { R.id.Num1sh, R.id.Num5sh, R.id.Num10sh, R.id.Num20sh,
+			R.id.Num50sh, R.id.Num100sh, R.id.Num200sh, R.id.Num500sh,
+			R.id.Num1000sh, R.id.Num2000sh, R.id.Num5000sh, R.id.Num10000sh };
+	int[] sumIds = { R.id.Sum1sh, R.id.Sum5sh, R.id.Sum10sh, R.id.Sum20sh,
+			R.id.Sum50sh, R.id.Sum100sh, R.id.Sum200sh, R.id.Sum500sh,
+			R.id.Sum1000sh, R.id.Sum2000sh, R.id.Sum5000sh, R.id.Sum10000sh };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
-		for (int i : centValue) {
+		for (int i : shValue) {
 			data.put(i, 0);
 		}
 
 		((Button) findViewById(R.id.btnClear)).setOnClickListener(this);
 
-		((TextView) findViewById(R.id.Text100dol)).setOnClickListener(this);
-		((TextView) findViewById(R.id.Text50dol)).setOnClickListener(this);
-		((TextView) findViewById(R.id.Text20dol)).setOnClickListener(this);
-		((TextView) findViewById(R.id.Text10dol)).setOnClickListener(this);
-		((TextView) findViewById(R.id.Text5dol)).setOnClickListener(this);
-		((TextView) findViewById(R.id.Text2dol)).setOnClickListener(this);
-		((TextView) findViewById(R.id.Text1dol)).setOnClickListener(this);
+		((TextView) findViewById(R.id.Text10000sh)).setOnClickListener(this);
+		((TextView) findViewById(R.id.Text5000sh)).setOnClickListener(this);
+		((TextView) findViewById(R.id.Text2000sh)).setOnClickListener(this);
+		((TextView) findViewById(R.id.Text1000sh)).setOnClickListener(this);
+		((TextView) findViewById(R.id.Text500sh)).setOnClickListener(this);
+		((TextView) findViewById(R.id.Text200sh)).setOnClickListener(this);
+		((TextView) findViewById(R.id.Text100sh)).setOnClickListener(this);
+		((TextView) findViewById(R.id.Text50sh)).setOnClickListener(this);
+		((TextView) findViewById(R.id.Text20sh)).setOnClickListener(this);
+		((TextView) findViewById(R.id.Text10sh)).setOnClickListener(this);
+		((TextView) findViewById(R.id.Text5sh)).setOnClickListener(this);
+		((TextView) findViewById(R.id.Text1sh)).setOnClickListener(this);
 
-		((TextView) findViewById(R.id.Text100cent)).setOnClickListener(this);
-		((TextView) findViewById(R.id.Text50cent)).setOnClickListener(this);
-		((TextView) findViewById(R.id.Text25cent)).setOnClickListener(this);
-		((TextView) findViewById(R.id.Text10cent)).setOnClickListener(this);
-		((TextView) findViewById(R.id.Text5cent)).setOnClickListener(this);
-		((TextView) findViewById(R.id.Text1cent)).setOnClickListener(this);
+		findViewById(R.id.img10000sh).setOnTouchListener(this);
+		findViewById(R.id.img5000sh).setOnTouchListener(this);
+		findViewById(R.id.img2000sh).setOnTouchListener(this);
+		findViewById(R.id.img1000sh).setOnTouchListener(this);
+		findViewById(R.id.img500sh).setOnTouchListener(this);
+		findViewById(R.id.img200sh).setOnTouchListener(this);
+		findViewById(R.id.img100sh).setOnTouchListener(this);
+		findViewById(R.id.img50sh).setOnTouchListener(this);
+		findViewById(R.id.img20sh).setOnTouchListener(this);
+		findViewById(R.id.img10sh).setOnTouchListener(this);
+		findViewById(R.id.img5sh).setOnTouchListener(this);
+		findViewById(R.id.img1sh).setOnTouchListener(this);
 
-		findViewById(R.id.img100dol).setOnTouchListener(this);
-		findViewById(R.id.img50dol).setOnTouchListener(this);
-		findViewById(R.id.img20dol).setOnTouchListener(this);
-		findViewById(R.id.img10dol).setOnTouchListener(this);
-		findViewById(R.id.img5dol).setOnTouchListener(this);
-		findViewById(R.id.img2dol).setOnTouchListener(this);
-		findViewById(R.id.img1dol).setOnTouchListener(this);
-		findViewById(R.id.img100cent).setOnTouchListener(this);
-		findViewById(R.id.img50cent).setOnTouchListener(this);
-		findViewById(R.id.img25cent).setOnTouchListener(this);
-		findViewById(R.id.img10cent).setOnTouchListener(this);
-		findViewById(R.id.img5cent).setOnTouchListener(this);
-		findViewById(R.id.img1cent).setOnTouchListener(this);
+		idMapNum.put(R.id.Text1sh, R.id.Num1sh);
+		idMapNum.put(R.id.Text5sh, R.id.Num5sh);
+		idMapNum.put(R.id.Text10sh, R.id.Num10sh);
+		idMapNum.put(R.id.Text20sh, R.id.Num20sh);
+		idMapNum.put(R.id.Text50sh, R.id.Num50sh);
+		idMapNum.put(R.id.Text100sh, R.id.Num100sh);
+		idMapNum.put(R.id.Text200sh, R.id.Num200sh);
+		idMapNum.put(R.id.Text500sh, R.id.Num500sh);
+		idMapNum.put(R.id.Text1000sh, R.id.Num1000sh);
+		idMapNum.put(R.id.Text2000sh, R.id.Num2000sh);
+		idMapNum.put(R.id.Text5000sh, R.id.Num5000sh);
+		idMapNum.put(R.id.Text10000sh, R.id.Num10000sh);
 
-		idMapNum.put(R.id.Text1cent, R.id.Num1cent);
-		idMapNum.put(R.id.Text5cent, R.id.Num5cent);
-		idMapNum.put(R.id.Text10cent, R.id.Num10cent);
-		idMapNum.put(R.id.Text25cent, R.id.Num25cent);
-		idMapNum.put(R.id.Text50cent, R.id.Num50cent);
-		idMapNum.put(R.id.Text100cent, R.id.Num100cent);
-		idMapNum.put(R.id.Text1dol, R.id.Num1dol);
-		idMapNum.put(R.id.Text2dol, R.id.Num2dol);
-		idMapNum.put(R.id.Text5dol, R.id.Num5dol);
-		idMapNum.put(R.id.Text10dol, R.id.Num10dol);
-		idMapNum.put(R.id.Text20dol, R.id.Num20dol);
-		idMapNum.put(R.id.Text50dol, R.id.Num50dol);
-		idMapNum.put(R.id.Text100dol, R.id.Num100dol);
-
-		idMapSum.put(R.id.Text1cent, R.id.Sum1cent);
-		idMapSum.put(R.id.Text5cent, R.id.Sum5cent);
-		idMapSum.put(R.id.Text10cent, R.id.Sum10cent);
-		idMapSum.put(R.id.Text25cent, R.id.Sum25cent);
-		idMapSum.put(R.id.Text50cent, R.id.Sum50cent);
-		idMapSum.put(R.id.Text100cent, R.id.Sum100cent);
-		idMapSum.put(R.id.Text1dol, R.id.Sum1dol);
-		idMapSum.put(R.id.Text2dol, R.id.Sum2dol);
-		idMapSum.put(R.id.Text5dol, R.id.Sum5dol);
-		idMapSum.put(R.id.Text10dol, R.id.Sum10dol);
-		idMapSum.put(R.id.Text20dol, R.id.Sum20dol);
-		idMapSum.put(R.id.Text50dol, R.id.Sum50dol);
-		idMapSum.put(R.id.Text100dol, R.id.Sum100dol);
+		idMapSum.put(R.id.Text1sh, R.id.Sum1sh);
+		idMapSum.put(R.id.Text5sh, R.id.Sum5sh);
+		idMapSum.put(R.id.Text10sh, R.id.Sum10sh);
+		idMapSum.put(R.id.Text20sh, R.id.Sum20sh);
+		idMapSum.put(R.id.Text50sh, R.id.Sum50sh);
+		idMapSum.put(R.id.Text100sh, R.id.Sum100sh);
+		idMapSum.put(R.id.Text200sh, R.id.Sum200sh);
+		idMapSum.put(R.id.Text500sh, R.id.Sum500sh);
+		idMapSum.put(R.id.Text1000sh, R.id.Sum1000sh);
+		idMapSum.put(R.id.Text2000sh, R.id.Sum2000sh);
+		idMapSum.put(R.id.Text5000sh, R.id.Sum5000sh);
+		idMapSum.put(R.id.Text10000sh, R.id.Sum10000sh);
 
 		int idx = 0;
-		idMapTxt.put(R.id.Text1cent, centValue[idx++]);
-		idMapTxt.put(R.id.Text5cent, centValue[idx++]);
-		idMapTxt.put(R.id.Text10cent, centValue[idx++]);
-		idMapTxt.put(R.id.Text25cent, centValue[idx++]);
-		idMapTxt.put(R.id.Text50cent, centValue[idx++]);
-		idMapTxt.put(R.id.Text100cent, centValue[idx++]);
-		idMapTxt.put(R.id.Text1dol, centValue[idx++]);
-		idMapTxt.put(R.id.Text2dol, centValue[idx++]);
-		idMapTxt.put(R.id.Text5dol, centValue[idx++]);
-		idMapTxt.put(R.id.Text10dol, centValue[idx++]);
-		idMapTxt.put(R.id.Text20dol, centValue[idx++]);
-		idMapTxt.put(R.id.Text50dol, centValue[idx++]);
-		idMapTxt.put(R.id.Text100dol, centValue[idx]);
+		idMapTxt.put(R.id.Text1sh, shValue[idx++]);
+		idMapTxt.put(R.id.Text5sh, shValue[idx++]);
+		idMapTxt.put(R.id.Text10sh, shValue[idx++]);
+		idMapTxt.put(R.id.Text20sh, shValue[idx++]);
+		idMapTxt.put(R.id.Text50sh, shValue[idx++]);
+		idMapTxt.put(R.id.Text100sh, shValue[idx++]);
+		idMapTxt.put(R.id.Text200sh, shValue[idx++]);
+		idMapTxt.put(R.id.Text500sh, shValue[idx++]);
+		idMapTxt.put(R.id.Text1000sh, shValue[idx++]);
+		idMapTxt.put(R.id.Text2000sh, shValue[idx++]);
+		idMapTxt.put(R.id.Text5000sh, shValue[idx++]);
+		idMapTxt.put(R.id.Text10000sh, shValue[idx++]);
 
 		addSetting();
 		add2Init();
@@ -174,11 +165,11 @@ public class MainActivity extends Activity implements OnClickListener,
 	}
 
 	private void initVew() {
-		int hight = (int) ((findViewById(R.id.Text100dol).getHeight()) * 0.8);
+		int hight = (int) ((findViewById(R.id.Text10000sh).getHeight()) * 0.8);
 		Log.d("yyama", "高さ" + String.valueOf(hight));
 		ImageView iv;
 
-		iv = (ImageView) findViewById(R.id.img100cent);
+		iv = (ImageView) findViewById(R.id.img10000sh);
 		int orgH = iv.getHeight();
 		Log.d("yyama", "オリジナルの高さ" + orgH);
 		int orgW = iv.getWidth();
@@ -187,59 +178,40 @@ public class MainActivity extends Activity implements OnClickListener,
 		Log.d("yyama", "比率" + raito);
 		TableRow.LayoutParams prm = new TableRow.LayoutParams(
 				(int) (orgW * raito), hight);
-		prm.rightMargin = 0;
+		prm.rightMargin = 3;
 		prm.leftMargin = 0;
 		prm.weight = 0;
 		prm.gravity = Gravity.CENTER;
 
-		// 100ドルイメージを表示
-		iv = (ImageView) findViewById(R.id.img100dol);
+		// イメージを表示
+		iv = (ImageView) findViewById(R.id.img10000sh);
 		iv.setLayoutParams(prm);
-		Log.d("yyama", "100ドルの幅：" + iv.getWidth());
+		Log.d("yyama", "10000shの幅：" + iv.getWidth());
 
-		// 50ドルイメージを表示
-		iv = (ImageView) findViewById(R.id.img50dol);
+		iv = (ImageView) findViewById(R.id.img5000sh);
 		iv.setLayoutParams(prm);
-		// 20ドルイメージを表示
-		iv = (ImageView) findViewById(R.id.img20dol);
+		iv = (ImageView) findViewById(R.id.img2000sh);
 		iv.setLayoutParams(prm);
-		// 10ドルイメージを表示
-		iv = (ImageView) findViewById(R.id.img10dol);
+		iv = (ImageView) findViewById(R.id.img1000sh);
 		iv.setLayoutParams(prm);
-		// 5ドルイメージを表示
-		iv = (ImageView) findViewById(R.id.img5dol);
+		iv = (ImageView) findViewById(R.id.img500sh);
 		iv.setLayoutParams(prm);
-		// 2ドルイメージを表示
-		iv = (ImageView) findViewById(R.id.img2dol);
+		iv = (ImageView) findViewById(R.id.img200sh);
 		iv.setLayoutParams(prm);
-		// 1ドルイメージを表示
-		iv = (ImageView) findViewById(R.id.img1dol);
+		iv = (ImageView) findViewById(R.id.img100sh);
 		iv.setLayoutParams(prm);
-		// 100セントイメージを表示
-		iv = (ImageView) findViewById(R.id.img100cent);
+		iv = (ImageView) findViewById(R.id.img50sh);
 		iv.setLayoutParams(prm);
-		Log.d("yyama", "100セントの幅：" + iv.getWidth());
-		// 50セントイメージを表示
-		iv = (ImageView) findViewById(R.id.img50cent);
+		Log.d("yyama", "50shの幅：" + iv.getWidth());
+		iv = (ImageView) findViewById(R.id.img20sh);
 		iv.setLayoutParams(prm);
 		Log.d("yyama", "50セントの幅：" + iv.getWidth());
-		// 25セントイメージを表示
-		iv = (ImageView) findViewById(R.id.img25cent);
+		iv = (ImageView) findViewById(R.id.img10sh);
 		iv.setLayoutParams(prm);
-		// 10セントイメージを表示
-		iv = (ImageView) findViewById(R.id.img10cent);
+		iv = (ImageView) findViewById(R.id.img5sh);
 		iv.setLayoutParams(prm);
-		// 5セントイメージを表示
-		iv = (ImageView) findViewById(R.id.img5cent);
+		iv = (ImageView) findViewById(R.id.img1sh);
 		iv.setLayoutParams(prm);
-		// 1セントイメージを表示
-		iv = (ImageView) findViewById(R.id.img1cent);
-		iv.setLayoutParams(prm);
-
-		// iv.setScaleY(hight);
-		// iv.setMaxHeight(10);
-		// iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
-		// iv.setImageResource(R.drawable.dol100);
 	}
 
 	private AdView adView;
@@ -247,7 +219,7 @@ public class MainActivity extends Activity implements OnClickListener,
 	private void addSetting() {
 		// adView を作成する
 		adView = new AdView(this);
-		adView.setAdUnitId("ca-app-pub-2505812570403600/7577517376");
+		adView.setAdUnitId("ca-app-pub-2505812570403600/4581424574");
 		adView.setAdSize(AdSize.BANNER);
 
 		// 属性 android:id="@+id/mainLayout" が与えられているものとして
@@ -273,7 +245,7 @@ public class MainActivity extends Activity implements OnClickListener,
 	private void add2Init() {
 		// インタースティシャルを作成する。
 		interstitial = new InterstitialAd(this);
-		interstitial.setAdUnitId("ca-app-pub-2505812570403600/1530983777");
+		interstitial.setAdUnitId("ca-app-pub-2505812570403600/7534890979");
 
 		// Set the AdListener.
 		interstitial.setAdListener(new AdListener() {
@@ -303,20 +275,15 @@ public class MainActivity extends Activity implements OnClickListener,
 			// Log.d("yyama", ((TextView) findViewById(numIds[i])).getText()
 			// .toString());
 			((TextView) findViewById(numIds[i])).setText(" "
-					+ String.format("%,d", data.get(centValue[i])));
-			int num = 0;
-			if (centValue[i] == 99999) {
-				num = 100;
-			} else {
-				num = centValue[i];
-			}
+					+ String.format("%,d", data.get(shValue[i])));
+			int num = shValue[i];
+
 			((TextView) findViewById(sumIds[i])).setText(String.format(
-					"$ %,.2f", (double) ((double) data.get(centValue[i])
-							* (double) num / 100.0d)));
-			sum += data.get(centValue[i]) * num;
+					" %,d /=", (data.get(shValue[i]) * num)));
+			sum += data.get(shValue[i]) * num;
 		}
-		((TextView) findViewById(R.id.allSum)).setText(String.format("$ %,.2f",
-				(double) sum / 100.0d));
+		((TextView) findViewById(R.id.allSum)).setText(String.format(" %,d /=",
+				sum));
 	}
 
 	@Override
@@ -336,8 +303,8 @@ public class MainActivity extends Activity implements OnClickListener,
 			PrintWriter writer = new PrintWriter(new OutputStreamWriter(out,
 					"UTF-8"));
 			// 追記する
-			for (int i = 0; i < centValue.length; i++) {
-				writer.append(centValue[i] + "," + data.get(centValue[i])
+			for (int i = 0; i < shValue.length; i++) {
+				writer.append(shValue[i] + "," + data.get(shValue[i])
 						+ System.lineSeparator());
 			}
 			writer.close();
@@ -427,7 +394,7 @@ public class MainActivity extends Activity implements OnClickListener,
 		alertDlg.setMessage(getString(R.string.all_crear_confirm_msg));
 		alertDlg.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
-				for (int i : centValue) {
+				for (int i : shValue) {
 					data.put(i, 0);
 				}
 				save();
@@ -534,7 +501,7 @@ public class MainActivity extends Activity implements OnClickListener,
 									.openFileOutput(fileName,
 											Activity.MODE_PRIVATE));
 							// 追記する
-							for (int i : centValue) {
+							for (int i : shValue) {
 								pw.append(i + "," + data.get(i)
 										+ System.lineSeparator());
 							}
@@ -632,56 +599,52 @@ public class MainActivity extends Activity implements OnClickListener,
 		}
 		case MotionEvent.ACTION_UP: {
 			switch (v.getId()) {
-			case R.id.img100dol: {
-				findViewById(R.id.Text100dol).performClick();
+			case R.id.img10000sh: {
+				findViewById(R.id.Text10000sh).performClick();
 				break;
 			}
-			case R.id.img50dol: {
-				findViewById(R.id.Text50dol).performClick();
+			case R.id.img5000sh: {
+				findViewById(R.id.Text5000sh).performClick();
 				break;
 			}
-			case R.id.img20dol: {
-				findViewById(R.id.Text20dol).performClick();
+			case R.id.img2000sh: {
+				findViewById(R.id.Text2000sh).performClick();
 				break;
 			}
-			case R.id.img10dol: {
-				findViewById(R.id.Text10dol).performClick();
+			case R.id.img1000sh: {
+				findViewById(R.id.Text1000sh).performClick();
 				break;
 			}
-			case R.id.img5dol: {
-				findViewById(R.id.Text5dol).performClick();
+			case R.id.img500sh: {
+				findViewById(R.id.Text500sh).performClick();
 				break;
 			}
-			case R.id.img2dol: {
-				findViewById(R.id.Text2dol).performClick();
+			case R.id.img200sh: {
+				findViewById(R.id.Text200sh).performClick();
 				break;
 			}
-			case R.id.img1dol: {
-				findViewById(R.id.Text1dol).performClick();
+			case R.id.img100sh: {
+				findViewById(R.id.Text100sh).performClick();
 				break;
 			}
-			case R.id.img100cent: {
-				findViewById(R.id.Text100cent).performClick();
+			case R.id.img50sh: {
+				findViewById(R.id.Text50sh).performClick();
 				break;
 			}
-			case R.id.img50cent: {
-				findViewById(R.id.Text50cent).performClick();
+			case R.id.img20sh: {
+				findViewById(R.id.Text20sh).performClick();
 				break;
 			}
-			case R.id.img25cent: {
-				findViewById(R.id.Text25cent).performClick();
+			case R.id.img10sh: {
+				findViewById(R.id.Text10sh).performClick();
 				break;
 			}
-			case R.id.img10cent: {
-				findViewById(R.id.Text10cent).performClick();
+			case R.id.img5sh: {
+				findViewById(R.id.Text5sh).performClick();
 				break;
 			}
-			case R.id.img5cent: {
-				findViewById(R.id.Text5cent).performClick();
-				break;
-			}
-			case R.id.img1cent: {
-				findViewById(R.id.Text1cent).performClick();
+			case R.id.img1sh: {
+				findViewById(R.id.Text1sh).performClick();
 				break;
 			}
 
