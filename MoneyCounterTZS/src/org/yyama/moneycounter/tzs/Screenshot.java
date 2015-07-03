@@ -24,13 +24,27 @@ import android.widget.Toast;
 
 public class Screenshot {
 	static View view;
-	private static final String directory = Environment
+	private static final String baseDir = Environment
 			.getExternalStorageDirectory().toString()
 			+ "/"
-			+ Environment.DIRECTORY_PICTURES + "/" + "MoneyConterTZS/";
+			+ Environment.DIRECTORY_PICTURES;
+	private static final String directory = baseDir + "/MoneyConterTZS/";
 
 	public static void saveScreen(Activity act) {
-		createDir();
+		if (!new File(baseDir).isDirectory()) {
+			// sdカードが認識できない場合
+			Toast.makeText(act, R.string.no_sd_card, Toast.LENGTH_LONG).show();
+			return;
+		}
+		try {
+			createDir();
+		} catch (Exception e1) {
+			// フォルダが作成できない場合
+			Toast.makeText(act, R.string.can_not_be_saved, Toast.LENGTH_LONG)
+					.show();
+			e1.printStackTrace();
+			return;
+		}
 
 		String fileName = String.format(
 				"MoneyCounter_%1$tY%1$tm%1$td_%1$tH%1$tM%1$tS_%1$tL.png",
@@ -74,7 +88,9 @@ public class Screenshot {
 		crView.setVisibility(View.VISIBLE);
 		Toast.makeText(
 				act,
-				act.getString(R.string.saved_screenshot) + System.lineSeparator() + act.getString(R.string.destination) + "["
+				act.getString(R.string.saved_screenshot)
+						+ System.lineSeparator()
+						+ act.getString(R.string.destination) + "["
 						+ Screenshot.getFolder() + "]", Toast.LENGTH_LONG)
 				.show();
 	}
